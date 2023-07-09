@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block contenido %}
+{% load static %}
+<div class="row justify-content-center">
+  <div class="col-sm-6">
+    <div class="card">
+
+      <div class="card-header text-center" style="background-color:#00D879 ; color: white;">
+        <img src="{% static '/img/logo4.png' %}" alt="" width="220px"><br>
+        
+        Registro de Producto</div>
+      <div class="card-body">
+
+
+        <form method="POST">
+          {% csrf_token %}
+          {{ form }}
+          <hr>
+          <button type="submit" class="btn mx-3" style="background-color:rgb(4, 184, 115);color:white;">Agregar
+            Producto</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
