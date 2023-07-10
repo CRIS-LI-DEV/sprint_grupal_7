@@ -11,9 +11,14 @@
       <div class="card-body">
 
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
-          {{ form }}
+          <input type="file" name="archivo">
+          <input type="text" name="nombre">
+          <input type="text" name="descripcion">
+          <input type="number" name="precio">
+          
+          
           <hr>
           <button type="submit" class="btn mx-3" style="background-color:rgb(4, 184, 115);color:white;">Agregar
             Producto</button>

@@ -5,7 +5,7 @@ class RegistroProductoForm(forms.Form):
     nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     descripcion = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     precio = forms.IntegerField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    imagen = forms.ImageField()
+    archivo = forms.FileField(label='Selecciona un archivo')
 
 class LoginUsuario(forms.Form):
     usuario = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Ingrese su username','class':'form-control'}),max_length=50,required=True,label='Nombre de usuario')
@@ -23,10 +23,10 @@ class FormularioPedidoStaff(forms.Form):
         
         opciones_region = Region.objects.all().values_list('nombre', flat=True)
         opciones_comuna = Comuna.objects.all().values_list('nombre', flat=True)
-        opciones_username = User.objects.all().values_list('username', flat=True)
+        opciones_username = Cliente.objects.all()
         OPCIONES_REGION = tuple([(opcion, opcion) for opcion in opciones_region])
         OPCIONES_COMUNA = tuple([(opcion, opcion) for opcion in opciones_comuna] )
-        OPCIONES_USERNAME = tuple([(opcion, opcion) for opcion in opciones_username] )
+        OPCIONES_USERNAME = tuple([(opcion.user.username, opcion.user.username) for opcion in opciones_username] )
        
 
 

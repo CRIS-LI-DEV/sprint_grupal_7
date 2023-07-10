@@ -13,7 +13,8 @@ from app1.models import *
 from django.contrib import messages
 from django.db.models import Sum
 from django.contrib.auth.decorators import permission_required
-# Create your views here.
+
+
 def inicio(request):
     template='home.html'
     return render(request,template)
@@ -21,36 +22,46 @@ def inicio(request):
 
 
 def registro_producto(request):
+
     if request.method == 'POST':
-   
+        
         form = RegistroProductoForm(request.POST, request.FILES)
-        if form.is_valid():
-            print("LLEGUE")
-           
-            imagen = request.FILES['imagen']
-            producto = Producto(nombre =form['nombre'].value(),  precio =form['precio'].value(), descripcion = form['descripcion'].value() )
-            producto.imagen_b = imagen.read()
-            producto.imagen_f = imagen
-            producto.save()
-              
-            return redirect('/tomar_pedido_staff/')
+        
+        imagen = request.FILES['archivo']
+        producto = Producto(nombre =form['nombre'].value(),  precio =form['precio'].value(), descripcion = form['descripcion'].value() )
+        producto.imagen_b = imagen.read()
+        producto.imagen_f = imagen
+        producto.save()
+        return redirect('/tomar_pedido_staff/')
+
     else:
+
         form = RegistroProductoForm()
       
         return render(request, 'registro_producto.html', {'form': form})
 
+
+
+
+
 def imprimir_producto(request,id):
+
     producto = Producto.objects.get(id=id)
+    
     return HttpResponse(producto.imagen_b,content_type='image/jpeg')
 
 
 
 def generar_usuario_aleatorio():
+    
     usuario_aleatorio = "usuario" + str(uuid.uuid4())
+    
     return str(usuario_aleatorio)
 
 class HomeRegister(View):
+    
     def get(self,request):
+    
         request.session['carrito']=[] 
         formulario = SuscripcionEmail()
         lista = Producto.objects.all()

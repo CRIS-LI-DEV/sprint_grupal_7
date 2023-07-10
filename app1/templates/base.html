@@ -63,45 +63,43 @@
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
 
-      
-        <ul class="navbar-nav float-right">
 
-          {% if user.is_thenticated %}
-          <li class="nav-itauem">
-            <a class="nav-link" href="/logout_view"> Cerrar Sesion</a>
-          </li>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
-              style="background-color: #51bdba;">Carrito
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" style="color:black; width: 500px;">
-              
-              {% for x in request.session.carrito %}
-              <li>
-                <div class="card">
-                  <div class="card-header">{{x.cantidad}} unidades de {{x.nombre}}</div>
-                </div>
-              </li>
+      <ul class="navbar-nav " >
 
+        {% if user.is_authenticated %}
+        <li class="nav-itauem">
+          <a class="nav-link" href="/logout_view"> Cerrar Sesion</a>
+        </li>
 
-              {% endfor %}
+        <div class="dropdown">
+        
+          <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"
+            style="background-color: #51bdba;">Carrito
+            <span class="caret"></span>
+          </button>
+        
+          <ul class="dropdown-menu" style="color:black; width: 500px;">
 
-
-
-            
+            {% for x in request.session.carrito %}
+            <li>
+              <div class="card">
+                <div class="card-header">{{x.cantidad}} unidades de {{x.nombre}}</div>
+              </div>
+            </li>
+     
           
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="/login_view">Iniciar Sesion</a>
-          </li>
-          {% endif %}
-
-          <li>
+            {% endfor %}
 
           </ul>
 
-      
+                 {% else %}
+
+            <a class="nav-link" href="/login_view/"> Iniciar Sesion</a>
+            
+ {% endif %}
+      </div>
+      </ul>
+    </div>
   </nav>
 
   <div class="container-fluid main  ">
