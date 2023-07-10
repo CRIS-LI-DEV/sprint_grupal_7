@@ -61,7 +61,7 @@ class FormularioPedidoCliente(forms.Form):
         direccion=forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Ingrese la direccion del pedido','class':'form-control'}))
         fecha_entrega = forms.DateField(widget=forms.DateInput(attrs={'type': 'date','class':'form-control'}))
 
-
+        
 
         region = forms.ChoiceField(
         choices=OPCIONES_REGION,
@@ -83,3 +83,18 @@ class FormularioEstado(forms.Form):
         estado = forms.ChoiceField(
         choices=OPCIONES_ESTADO,
         widget=forms.Select( attrs={'class':'form-control'}))
+
+
+class FormularioExtensionCliente(forms.Form):
+        username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+        nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+        apellido = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+        rut = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+        direccion = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+      
+      
+        telefono = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+       
+        
+        
+       

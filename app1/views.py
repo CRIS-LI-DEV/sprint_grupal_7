@@ -165,9 +165,9 @@ class Login_View(View):
 
                         # return redirect('/perfil/')
                     else:
-                        return HttpResponse("NO FUNCIONO")
+                        return redirect('/')
                 else:
-                    return HttpResponse("NO FUNCIONO")
+                    return redirect('/')
         
 
 
@@ -541,8 +541,32 @@ def modificar_estado_pedido(request,id_pedido):
 
 
 
+def editar_perfil(request):
+    formulario = FormularioExtensionCliente(request.POST)
 
+    if formulario.is_valid():
+        id_user = request.user.id
+        user = User.objects.get(id=id_user)
+        perfil_cliente = Cliente.objects.get(user_id =id_user)
 
+        user.username = formulario.cleaned_data['username']
+        user.first_name = formulario.cleaned_data['nombre']
+        user.last_name = formulario.cleaned_data['apellido']
+
+        perfil_cliente.direccion = formulario.cleaned_data['direccion']
+        perfil_cliente.telefono = formulario.cleaned_data['telefono']
+        user.save()
+        perfil_cliente.save()
+        
+
+               
+        
+        return redirect('/perfil_cliente/')    
+    else:
+
+        form = FormularioExtensionCliente()
+      
+        return render(request, 'editar_perfil.html', {'form': form})
 
 
 

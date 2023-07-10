@@ -29,6 +29,8 @@ urlpatterns = [    path('admin/', admin.site.urls),
     path('limpiar_carrito_staff/', limpiar_carrito_staff,name="LIMPIAR_CARRITO_STAFF"),
     path('limpiar_carrito_cliente/', limpiar_carrito_cliente,name="LIMPIAR_CARRITO_CLIENTE"),
     path('modificar_estado/<int:id_pedido>', modificar_estado_pedido,name="LIMPIAR_CARRITO"),
+     path('editar_perfil/', editar_perfil,name="EDITAR_PERFIL"),
+
 ]
 
 
