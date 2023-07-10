@@ -26,9 +26,9 @@
                 <div>
                     <form action="/ag_pro_staff/" method="POST">
                         {% csrf_token %}
-                        <input class="" type="number" class="" name="cantidad_id" >
+                        <input class="form-control" type="number" class="" name="cantidad_id" >
                         <input type="hidden" class="" name="producto_id" style="width: 100px;" value="{{x.id}}">
-                        <input type="submit" value="AGREGAR" class="" style="border:none; background-color: #00D879;color:white">
+                        <input type="submit" value="AGREGAR" class="btn mt-1" style="border:none; background-color: #00D879;color:white">
                     </form>
                 </div>
 

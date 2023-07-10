@@ -16,8 +16,8 @@ class SuscripcionEmail(forms.Form):
 
 
 class AgregarProductoFrom(forms.Form):
-       producto_id = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Ingrese el precio','class':'w3-input'}))
-       cantidad_id = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Ingrese el precio','class':'w3-input'}))
+       producto_id = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Ingrese el precio','class':'form-control'}))
+       cantidad_id = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Ingrese el precio','class':'form-control','style':'width:50%;'}))
 
 class FormularioPedidoStaff(forms.Form):
         
