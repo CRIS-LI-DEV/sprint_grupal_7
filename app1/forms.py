@@ -8,7 +8,7 @@ class RegistroProductoForm(forms.Form):
     archivo = forms.FileField(label='Selecciona un archivo')
 
 class LoginUsuario(forms.Form):
-    usuario = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Ingrese su username','class':'form-control'}),max_length=50,required=True,label='Nombre de usuario')
+    usuario = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Ingrese su email','class':'form-control'}),max_length=50,required=True,label='Email del usuario')
     clave = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Ingrese su contraseña','class':'form-control'}), max_length=20,label='Password',required=True,error_messages={'required':'La contraseña es obligatoria'})
 
 class SuscripcionEmail(forms.Form):
@@ -17,7 +17,7 @@ class SuscripcionEmail(forms.Form):
 
 class AgregarProductoFrom(forms.Form):
        producto_id = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Ingrese el precio','class':'form-control'}))
-       cantidad_id = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Ingrese el precio','class':'form-control','style':'width:50%;'}))
+       cantidad_id = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Ingrese el precio','class':'form-control','style':'width:50%;'}), min_value=1)
 
 class FormularioPedidoStaff(forms.Form):
         

@@ -39,8 +39,8 @@
   <div class="col-sm-12">
 
 
-<div class="card" id="registro">
-  <div class="card-header" style="background-color:#00D879;color:white;">  <h3>Registrate</h3>
+<div class="card my-3" id="registro"  style="border:2px solid #00D879; border-radius: 28px; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);">
+  <div class="card-header" style="background-color:#00D879;color:white;border:2px solid #00D879; border-radius: 25px; ">  <h3>Registrate</h3>
   <p>y obten los mejores precios al registrarte</p></div>
 <div class="card-body" >
 
@@ -59,39 +59,6 @@
 <div class="col-sm-12">
 
 
-
-<div class="row justify-content-center cont-card">
-    {% for x in lista %}
-
-    <div class="col-sm-3 m-1">
-
-        <div class="card " style="box-shadow: 2px 2px 10px rgba(0,0,0,0.3);">
-
-
-            <div class="card-body">
-
-                <div class="text-center"> <a href="#registro">
-                        <img src="{{x.imagen_f.url}}" alt="" width="200px">
-                    </a></div>
-
-                <div class="ml-5"><strong>{{x.nombre}}</strong> </div>
-
-                <div class="ml-5" style="color: #00D879;"><h2>$ {{x.precio}} c/u</h2> </div>
-
-                <div class="text-center"style="background-color: rgb(143, 247, 46); padding: 5px; font-size: 20px;">
-                <a href="#registro" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.5);" >REGISTRATE</a>
-                </div>
-
-
-            </div>
-        </div>
-
-    </div>
-
-    {% endfor %}
-
-
-</div>
 
 
 

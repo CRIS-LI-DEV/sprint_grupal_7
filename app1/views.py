@@ -9,7 +9,7 @@ import string
 import random
 from django.core.mail import send_mail
 import uuid
-from app1.models import *
+from app1.models import *   
 from django.contrib import messages
 from django.db.models import Sum
 from django.contrib.auth.decorators import permission_required
@@ -352,7 +352,7 @@ def funcion_para_guardar_staff(request):
         
         producto = Producto.objects.get(id=formulario['producto_id'].value())
 
-        carrito.append({"producto":formulario['producto_id'].value(),"cantidad":formulario['cantidad_id'].value(),'nombre':producto.nombre})
+        carrito.append({"producto":formulario['producto_id'].value(),"cantidad":formulario['cantidad_id'].value(),'nombre':producto.nombre,'valor':int(producto.precio) * int(formulario['cantidad_id'].value())})
         
         request.session['carrito'] = carrito
         return redirect('/tomar_pedido_staff/')
@@ -576,6 +576,11 @@ def editar_perfil(request):
 
 
          
-
+def catalogo(request):
+    productos = Producto.objects.all()
+    return render (request,'catalogo.html',{'productos':productos})
 
            
+def navegador(request):
+    template= 'nav.html'
+    return render(request,template)
